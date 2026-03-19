@@ -36,11 +36,11 @@ Canale di messaggistica finale scelto per il prototipo. L'integrazione con Botpr
 
 ## Scelta del Canale: da Twilio a Telegram
 
-Inizialmente e' stato scelto **Twilio Sandbox** per simulare WhatsApp, in quanto WhatsApp Business API reale richiede un account Meta Business verificato — un processo lungo e non adatto a un prototipo accademico. Twilio offre un ambiente di test gratuito che simula WhatsApp senza questa verifica.
+Inizialmente è stato scelto **Twilio Sandbox** per simulare WhatsApp, in quanto WhatsApp Business API reale richiede un account Meta Business verificato — un processo lungo e non adatto a un prototipo accademico. Twilio offre un ambiente di test gratuito che simula WhatsApp senza questa verifica.
 
-Durante i test e' emerso un problema tecnico bloccante: l'integrazione Twilio di Botpress v1.3.1 invia automaticamente un parametro `"typing": true` in ogni messaggio. Questa funzionalita' e' in Public Beta su Twilio e non e' supportata dal Sandbox gratuito, che risponde con un errore **HTTP 400** bloccando l'invio di tutti i messaggi. Il problema e' stato confermato come bug noto nella repository ufficiale di Twilio su GitHub e non era risolvibile lato configurazione.
+Durante i vari test è emerso un problema tecnico bloccante: l'integrazione Twilio di Botpress v1.3.1 invia automaticamente un parametro `"typing": true` in ogni messaggio. Questa funzionalita' e' in Public Beta su Twilio e non è supportata dal Sandbox gratuito, che risponde con un errore **HTTP 400** bloccando l'invio di tutti i messaggi. Il problema è stato confermato come bug noto nella repository ufficiale di Twilio su GitHub e non era risolvibile lato configurazione.
 
-Si e' quindi deciso di passare a **Telegram**, che ha risolto tutti i problemi:
+Si è quindi deciso di passare a **Telegram**, che ha risolto tutti i problemi:
 
 - Integrazione con Botpress immediata e funzionante
 - Completamente gratuita
@@ -49,24 +49,26 @@ Si e' quindi deciso di passare a **Telegram**, che ha risolto tutti i problemi:
 
 ---
 
-## Funzionalita' del Chatbot
+## Funzionalità del Chatbot
 
-Il chatbot e' strutturato in un unico workflow principale con tre percorsi:
+Il chatbot è strutturato in un unico workflow principale con tre percorsi:
 
 **Menu principale**
 Accoglie l'utente e propone due opzioni: prenotare un appuntamento oppure visualizzare informazioni su prezzi e orari.
 
-**Sezione informazioni**
-Mostra i servizi disponibili con prezzi e orari della barberia, con possibilita' di procedere direttamente alla prenotazione.
+**Sezione Informazioni**
+Mostra i servizi disponibili con prezzi e orari della barberia, con possibilità di procedere direttamente alla prenotazione, tornare al Menù principale oppure terminare il flusso (tramite selezione 'Esci'). 
 
-**Flusso di prenotazione**
+**Flusso di Prenotazione**
 1. L'utente sceglie il servizio desiderato
 2. Il bot raccoglie nome ed email
 3. Viene effettuata una chiamata alle API di Calendly per generare un link personalizzato
 4. Il link viene inviato all'utente in chat
 5. L'utente sceglie data e ora su Calendly e riceve una email di conferma automatica
 
-In tutti i nodi e' stata implementata la gestione degli errori per input non validi: il bot avvisa l'utente e ripropone la domanda.
+Dopo la prenotazione l'utente può scegliere se fare un'altra prenotazione (ritorna al nodo Prenotazione), tornare al Menù principale (ritorna al nodo Menu) oppure cliccare su Esci (per terminare il flusso). 
+
+In tutti i nodi è stata implementata la gestione degli errori per input non validi: il bot avvisa l'utente e ripropone la domanda.
 
 ---
 
@@ -74,6 +76,7 @@ In tutti i nodi e' stata implementata la gestione degli errori per input non val
 
 Il prototipo funziona su Telegram con integrazione reale delle API di Calendly. I link generati sono reali e le prenotazioni vengono effettivamente salvate nel calendario del barbiere.
 
+Puoi testare il bot direttamente su Telegram: [Einstein] [https://t.me/nomedelbot](https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/03/17/15/20260317154148-BV65UTC4.json)
 ---
 
 ## Tecnologie Utilizzate
