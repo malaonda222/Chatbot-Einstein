@@ -76,7 +76,7 @@ In tutti i nodi è stata implementata la gestione degli errori per input non val
 
 Il prototipo funziona su Telegram con integrazione reale delle API di Calendly. I link generati sono reali e le prenotazioni vengono effettivamente salvate nel calendario del barbiere.
 
-Puoi testare il bot direttamente su Telegram: [Einstein] [https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/03/17/15/20260317154148-BV65UTC4.json]
+Puoi testare il bot direttamente su Telegram: [Einstein] [(https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/03/17/15/20260317154148-BV65UTC4.json)]
 ---
 
 ## Tecnologie Utilizzate
